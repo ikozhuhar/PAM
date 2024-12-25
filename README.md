@@ -60,23 +60,72 @@ https://losst.pro/nastrojka-pam-v-linux
 ## [[⬆]](#toc) <a name='6'>Лабораторная работа</a>
 
 1. https://hashicorp-releases.yandexcloud.net/vagrant/
-2. Создадим Vagrantfile
-3. vagrant up
-4. vagrant ssh
-5. sudo -i
-6. sudo useradd otusadm && sudo useradd otus
-7. echo "Otus2022!" | sudo passwd --stdin otusadm && echo "Otus2022!" | sudo passwd --stdin otus
-8. Создаём группу admin: sudo groupadd -f admin
-9. usermod otusadm -a -G admin && usermod root -a -G admin && usermod vagrant -a -G admin
+
+![image](https://github.com/user-attachments/assets/0fa1766d-6b6b-4968-aa36-e4c8cf6221f5)
+
+3. Создадим Vagrantfile
+
+![image](https://github.com/user-attachments/assets/d3d4aaf6-ceab-4cc2-906c-3710c5a292fe)
+
+5. vagrant up
+
+![image](https://github.com/user-attachments/assets/6779feb4-649d-42d8-a53c-edb813b3457e)
+
+![image](https://github.com/user-attachments/assets/25cebc83-6051-4737-9d5c-28ebe8ddc590)
+
+
+7. vagrant ssh
+
+![image](https://github.com/user-attachments/assets/ffd77075-0c35-4075-96c1-0788f59c4003)
+
+```
+sudo -i
+useradd otusadm && useradd otus
+```
+
+![image](https://github.com/user-attachments/assets/14462804-9030-47be-8b86-2b096de8f268)
+
+ 11. Задаем пароль пользователям otusadm и otus
+```
+passwd otusadm
+passwd otus
+```
+
+![image](https://github.com/user-attachments/assets/fb37cdee-ae48-4b99-8093-cf09cd540560)
+
+![image](https://github.com/user-attachments/assets/7025efd0-328a-4607-94d2-d5437d71937d)
+
+
+13. Создаём группу admin: sudo groupadd -f admin
+```
+groupadd -f admin
+```
+
+![image](https://github.com/user-attachments/assets/47a2d77d-6f7d-4bc5-a542-c5c3440884a4)
+
+15. Добавляем пользователей otusadm, root и vagrant в группу admin
+```
+usermod otusadm -aG admin && usermod root -aG admin && usermod vagrant -aG admin
+```
+
+![image](https://github.com/user-attachments/assets/4c083a12-eb68-4666-a763-ff9e4642d5c0)
 
 
 После создания пользователей, нужно проверить, что они могут подключаться по SSH к нашей ВМ. Для этого пытаемся подключиться с хостовой машины: 
+```
 ssh otus@192.168.57.10
+```
+
+![image](https://github.com/user-attachments/assets/c7256fe1-8ffb-4ced-9811-be5af92ea4ee)
+
 
 1. Проверим, что пользователи root, vagrant и otusadm есть в группе admin:
 ```
 cat /etc/group | grep admin
 ```
+
+![image](https://github.com/user-attachments/assets/54706bbf-2611-437a-b3b3-8930e9d1aa38)
+
 
 3. Создадим файл-скрипт /usr/local/bin/login.sh
 ```
