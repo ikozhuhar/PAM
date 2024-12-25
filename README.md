@@ -61,7 +61,7 @@ https://losst.pro/nastrojka-pam-v-linux
 
 1. https://hashicorp-releases.yandexcloud.net/vagrant/
 
-![image](https://github.com/user-attachments/assets/0fa1766d-6b6b-4968-aa36-e4c8cf6221f5)
+![image](https://github.com/user-attachments/assets/22c93b89-9d2c-46a5-9eee-f954e136f97b)
 
 3. Создадим Vagrantfile
 
