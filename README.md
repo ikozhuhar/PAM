@@ -129,8 +129,11 @@ cat /etc/group | grep admin
 
 3. Создадим файл-скрипт /usr/local/bin/login.sh
 ```
-vim /usr/local/bin/login.sh
+vi /usr/local/bin/login.sh
 ```
+
+![image](https://github.com/user-attachments/assets/2f28476d-c7a9-46be-b431-ec354affa2a5)
+
 ```
 #!/bin/bash
 #Первое условие: если день недели суббота или воскресенье
@@ -148,15 +151,27 @@ if [ $(date +%a) = "Sat" ] || [ $(date +%a) = "Sun" ]; then
     exit 0
 fi
 ```
-3. Добавим права на исполнение файла: 
+
+![image](https://github.com/user-attachments/assets/789d9680-bcec-443b-8ff9-d869819212aa)
+
+
+
+3. Добавим права на исполнение файла:
+
 ```
 chmod +x /usr/local/bin/login.sh
 ```
+
+![image](https://github.com/user-attachments/assets/e94a30aa-7ee7-4c5a-9571-e19d0f5fc76f)
+
 
 4. Укажем в файле /etc/pam.d/sshd модуль pam_exec и наш скрипт:
 ```
 echo "auth required pam_exec.so debug /usr/local/bin/login.sh" >> /etc/pam.d/sshd
 ```
+
+![image](https://github.com/user-attachments/assets/b0069a0b-fbf7-4c3c-9719-155a2814e13b)
+
 
 
 
