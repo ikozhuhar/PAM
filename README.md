@@ -207,8 +207,13 @@ echo "auth required pam_exec.so debug /usr/local/bin/login.sh" >> /etc/pam.d/ssh
 ![image](https://github.com/user-attachments/assets/b0069a0b-fbf7-4c3c-9719-155a2814e13b)
 
 
+По скриншоту видно, что пользователя otus не пускает
 
+![image](https://github.com/user-attachments/assets/be4bc744-2be0-4fd9-9e20-c79e4eb8b588)
 
+а пользователя otusadm пускает
+
+![image](https://github.com/user-attachments/assets/c36e97a8-fdbb-4728-a444-0a98d4e03a4e)
 
 
 
